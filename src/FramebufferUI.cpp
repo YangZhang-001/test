@@ -140,6 +140,7 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& visual,
 	
     if (InteractionManager::currentPage == UIPage::PLAYER) {
         // 调用原有的镜像音柱渲染
+		float intensity = avData.rms;
         UIRenderer::renderMirrorEqualizer(this, intensity, vinfo.xres/2, vinfo.yres/2, 150);
 		// [新增] 叠加渲染播放器控制按钮
         UIRenderer::renderButtons(this, layout);
