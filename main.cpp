@@ -20,7 +20,7 @@ int main() {
         // 3. 设置命令发射器 (模拟 FastDDS 发送指令)
         InteractionManager::setCommandEmitter([](const System::ControlCommand& cmd) {
             std::cout << "[Command Sent] Type: " << static_cast<int>(cmd.type) 
-                      << " Value: " << cmd.value << std::endl;
+                      << " Value: " << cmd.intValue << std::endl;
         });
 
         // 4. 启动触摸监听，并将点击事件传递给 InteractionManager
@@ -42,12 +42,14 @@ int main() {
 
             // 模拟系统状态
             System::AudioVisualData avData = { std::abs(fakeIntensity) };
-            System::PlaybackStatus status = { true, 120, 45, "Testing Track" };
-            System::EnvironmentStatus env = { 24.5f, "Sunny", "2026-03-20" };
+            //System::PlaybackStatus status = { true, 120, 45, "Testing Track" };
+            //System::EnvironmentStatus env = { 24.5f, "Sunny", "2026-03-20" };
+            System::PlaybackStatus status = { "Testing Track", "Unknown Artist", 45, 120, true, 50 };
+            System::EnvironmentStatus env = { 24.5f, 60.0f, 1013.25f, 500, "2026-03-20 12:00" };
 
             // 根据当前页面调用对应的刷新函数
             if (InteractionManager::currentPage == UIPage::STANDBY) {
-                ui.refreshStandbyMode(env);
+                ui.refreshStandby(env);
             } else {
                 ui.refreshMusicAnimation(avData, status);
             }
