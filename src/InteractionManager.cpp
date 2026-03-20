@@ -23,7 +23,7 @@ namespace UI {
             // 界面1：歌单目录（支持点击切歌并进入播放器）
             for(int i=0; i<10; ++i) { // Assume 10 songs
                 int btnY = 60 * i + offset + 50; 
-                layout.push_back({50, btnY, 700, 50, "SONG_" + std::to_string(i), {40, 40, 60}, [i, this](){
+                layout.push_back({50, btnY, 700, 50, "SONG_" + std::to_string(i), {40, 40, 60}, [i](){
                     // (Action: Send command to play specific song index)
                     if(commandEmitter) commandEmitter({System::CommandType::SELECT_SONG, i, 0.0f});
                     currentPage = UIPage::PLAYER; 
