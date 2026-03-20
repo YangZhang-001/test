@@ -13,7 +13,7 @@ namespace UI {
         std::cerr << "Failed to open touch device!" << std::endl;
         }
 	}
-
+}
     TouchHandler::~TouchHandler() { stopListening(); if (touchFd != -1) close(touchFd); }
 
     void TouchHandler::startListening(ClickCallback callback) {
