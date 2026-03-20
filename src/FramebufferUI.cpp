@@ -140,14 +140,14 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& avData,
 	
     if (InteractionManager::currentPage == UIPage::PLAYER) {
         // 调用原有的镜像音柱渲染
-		float intensity = avData.overallIntensity;
-        UIRenderer::renderMirrorEqualizer(this, intensity, vinfo.xres/2, vinfo.yres/2, 150);
+		
+        UIRenderer::renderMirrorEqualizer(this, avData.overallIntensity, vinfo.xres/2, vinfo.yres/2, 150);
 		// [新增] 叠加渲染播放器控制按钮
-        UIRenderer::renderButtons(this, layout, intensity);
+        UIRenderer::renderButtons(this, layout, avData.overallIntensity);
     } 
 	else if (InteractionManager::currentPage == UIPage::MUSIC_LIST) {
         // 渲染列表界面
-        UIRenderer::renderButtons(this, layout, intensity); 
+        UIRenderer::renderButtons(this, layout, avData.overallIntensity); 
     }
 }
 
