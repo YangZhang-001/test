@@ -42,7 +42,7 @@ int main() {
         std::cout << "Starting main loop. Press Ctrl+C to stop." << std::endl;
 
         while (running) {
-            ui.fillScreen(0xFFFF0000);
+           
             // 模拟音频跳动数据
             fakeIntensity += step;
             if (fakeIntensity > 1.0f || fakeIntensity < 0.0f) step = -step;
