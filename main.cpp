@@ -14,6 +14,11 @@ int main() {
         FramebufferUI ui("/dev/fb0");
         // 确保获取的宽度高度正确
         std::cout << "Current Resolution: " << ui.getWidth() << "x" << ui.getHeight() << std::endl;
+        std::cout << "Detected Resolution: " << ui.getWidth() << "x" << ui.getHeight() << std::endl;
+        if (ui.getHeight() != 600) {
+    std::cout << "Warning: System reported height " << ui.getHeight() 
+              << " does not match physical 600. Adjusting layouts..." << std::endl;
+}
 
         // 2. 初始化触摸处理器 (确保路径与树莓派识别的节点一致)
         TouchHandler touch("/dev/input/event0"); 
