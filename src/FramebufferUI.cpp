@@ -124,7 +124,7 @@ void FramebufferUI::refreshStandby(const System::EnvironmentStatus& env) {
  * 2. "Dirty Rectangle" approach: Clears only the previous bar area with the background color before rendering the new state based on intensity.
  * 3. Significantly reduces CPU load to maintain RT-deadlines.
  */
-void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& visual, const System::PlaybackStatus& status) {
+void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& avData/* 测试修改 */, const System::PlaybackStatus& status) {
     std::lock_guard<std::mutex> lock(uiMutex);
     
     // 更新缓存以便 UI 逻辑层访问
@@ -143,7 +143,7 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& visual,
 		float intensity = avData.rms;
         UIRenderer::renderMirrorEqualizer(this, intensity, vinfo.xres/2, vinfo.yres/2, 150);
 		// [新增] 叠加渲染播放器控制按钮
-        UIRenderer::renderButtons(this, layout);
+        UIRenderer::renderButtons(this, layout,intensity);
     } 
 	else if (InteractionManager::currentPage == UIPage::MUSIC_LIST) {
         // 渲染列表界面
