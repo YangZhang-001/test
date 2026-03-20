@@ -30,8 +30,8 @@ namespace UI {
     void TouchHandler::eventLoop() {
         struct input_event ev;
 		// 树莓派 7 寸屏典型坐标范围校准 (0-4095 -> 800x480)
-		const float scaleX = 800.0f / 4095.0f;
-		const float scaleY = 480.0f / 4095.0f;
+		const float scaleX = 1024.0f / 4095.0f;
+		const float scaleY = 600.0f / 4095.0f;
 	
         while (running) {
             if (read(touchFd, &ev, sizeof(ev)) > 0) {
