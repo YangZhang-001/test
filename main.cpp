@@ -47,9 +47,7 @@ int main() {
             if (fakeIntensity > 1.0f || fakeIntensity < 0.0f) step = -step;
 
             // 模拟系统状态
-            System::AudioVisualData avData = { std::abs(fakeIntensity) };
-            //System::PlaybackStatus status = { true, 120, 45, "Testing Track" };
-            //System::EnvironmentStatus env = { 24.5f, "Sunny", "2026-03-20" };
+            System::AudioVisualData avData = { std::abs(fakeIntensity), {} };
             System::PlaybackStatus status = { "Testing Track", "Unknown Artist", 45, 120, true, 50 };
             System::EnvironmentStatus env = { 24.5f, 60.0f, 1013.25f, 500, "2026-03-20 12:00" };
 
