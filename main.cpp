@@ -12,7 +12,8 @@ int main() {
     try {
         // 1. 初始化底层驱动 (默认使用 /dev/fb0)
         FramebufferUI ui("/dev/fb0");
-        std::cout << "Framebuffer initialized: " << ui.getWidth() << "x" << ui.getHeight() << std::endl;
+        // 确保获取的宽度高度正确
+        std::cout << "Current Resolution: " << ui.getWidth() << "x" << ui.getHeight() << std::endl;
 
         // 2. 初始化触摸处理器 (确保路径与树莓派识别的节点一致)
         TouchHandler touch("/dev/input/event0"); 
