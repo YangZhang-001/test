@@ -136,7 +136,7 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& visual,
 	
 	// 使用协议定义的视觉强度进行渲染
     UIRenderer::renderButtons(this, layout, visual.overallIntensity);
-}
+
 	
     if (InteractionManager::currentPage == UIPage::PLAYER) {
         // 调用原有的镜像音柱渲染

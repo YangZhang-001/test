@@ -11,7 +11,8 @@ namespace UI {
 		if (touchFd == -1) {
         // 错误处理
         std::cerr << "Failed to open touch device!" << std::endl;
-    }
+        }
+	}
 
     TouchHandler::~TouchHandler() { stopListening(); if (touchFd != -1) close(touchFd); }
 
