@@ -135,7 +135,7 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& avData/
     auto layout = InteractionManager::getActiveLayout();
 	
 	// 使用协议定义的视觉强度进行渲染
-    UIRenderer::renderButtons(this, layout, visual.overallIntensity);
+    UIRenderer::renderButtons(this, layout, avData.overallIntensity);
 
 	
     if (InteractionManager::currentPage == UIPage::PLAYER) {
@@ -143,7 +143,7 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& avData/
 		float intensity = avData.overallIntensity;
         UIRenderer::renderMirrorEqualizer(this, intensity, vinfo.xres/2, vinfo.yres/2, 150);
 		// [新增] 叠加渲染播放器控制按钮
-        UIRenderer::renderButtons(this, layout,intensity);
+        UIRenderer::renderButtons(this, _layout, intensity);
     } 
 	else if (InteractionManager::currentPage == UIPage::MUSIC_LIST) {
         // 渲染列表界面
