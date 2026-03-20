@@ -143,7 +143,7 @@ void FramebufferUI::refreshMusicAnimation(const System::AudioVisualData& avData/
 		float intensity = avData.overallIntensity;
         UIRenderer::renderMirrorEqualizer(this, intensity, vinfo.xres/2, vinfo.yres/2, 150);
 		// [新增] 叠加渲染播放器控制按钮
-        UIRenderer::renderButtons(this, _layout, intensity);
+        UIRenderer::renderButtons(this, layout, intensity);
     } 
 	else if (InteractionManager::currentPage == UIPage::MUSIC_LIST) {
         // 渲染列表界面
